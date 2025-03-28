@@ -34,6 +34,7 @@ class Adddoctor():
         sw.enter_text(Adddoctor.Docemail,value=email)
         sw.enter_text(Adddoctor.Docpassword,value=password)
         sw.enter_text(Adddoctor.Docconpass,value=conformpassword)
+        sleep(1)
         sw.click_element(Adddoctor.submitbtn)
         sleep(2)
         self.driver.switch_to.alert.accept()
