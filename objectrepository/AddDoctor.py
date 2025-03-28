@@ -35,7 +35,7 @@ class Adddoctor():
         sw.enter_text(Adddoctor.Docpassword,value=password)
         sw.enter_text(Adddoctor.Docconpass,value=conformpassword)
         sleep(1)
-        sw.driver.find_element("xpath","//button[@name='submit']").click()
+        self.driver.find_element("xpath","//button[@name='submit']").click()
         sleep(2)
         self.driver.switch_to.alert.accept()
 
