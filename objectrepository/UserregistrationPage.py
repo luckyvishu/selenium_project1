@@ -34,5 +34,5 @@ class create_patient:
         self.driver.execute_script(f"window.scrollBy(0, 1700)")
         wait = WebDriverWait(self.driver, 10)
         submit_button = wait.until(EC.element_to_be_clickable((By.ID, "submit")))
-        sw.click_element(submit_button)
+        submit_button.click()
         self.driver.switch_to.alert.accept()
