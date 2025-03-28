@@ -26,8 +26,9 @@ def test_Add_and_Delete_doctor_by_admin(setup_teardown):
 
     docdet = sf.get_data_from_excel(34,0,7)
     doc_mail_id=docdet[6].replace("@",(str(sf.gen_random_number())+"@"))
-    ad.add_Docotor(docdet[0], docdet[1], docdet[2], str(int(docdet[3])), doc_mail_id, docdet[4], docdet[5])
-    doctor_name=docdet[0]
+    doctor_name = (docdet[0]+str(sf.gen_random_number()))
+    ad.add_Docotor(doctor_name, docdet[1], docdet[2], str(int(docdet[3])), doc_mail_id, docdet[4], docdet[5])
+
     ddp=Deletedocotrpage(setup_teardown)
     ddp.Deletedoctor()
     sf.scroll_up()

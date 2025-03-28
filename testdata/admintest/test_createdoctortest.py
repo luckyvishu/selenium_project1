@@ -19,6 +19,7 @@ def test_create_doctor_test(setup_teardown):
     al.admin_login(admin_credential[0], admin_credential[1])
     ad=Adddoctor(setup_teardown)
     docdet = sf.get_data_from_excel(34, 0, 7)
+
     doc_mail_id = docdet[6].replace("@", (str(sf.gen_random_number()) + "@"))
     ad.add_Docotor(docdet[0], docdet[1], docdet[2], str(int(docdet[3])), doc_mail_id, docdet[4], docdet[5])
     lo=logout(setup_teardown)

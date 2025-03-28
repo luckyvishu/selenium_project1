@@ -25,7 +25,7 @@ class Bookappointment:
         element1=self.driver.find_element("name","doctor")
         s1=Select(element1)
         sleep(2)
-        s1.select_by_visible_text("vishwanath hm")
+        s1.select_by_visible_text("vishwanath")
 
         sc=get_date(self.driver)
 
