@@ -51,8 +51,8 @@ from xlrd import open_workbook
 def get_data_from_excel():
     wb = open_workbook("C:\\Users\\QSP-USER\\PycharmProjects\\selenium_hospital_management sysytem\\AdminData-2.xls")
     sh = wb.sheet_by_name("Sheet1")
-    value=sh.row_values(45, 0, 2)
-    print(value[0],value[1])
+    value=sh.row_values(34, 0, 7)
+    print(value[0],value[1],value[2],value[3],value[4],value[5],value[6])
 
 
 get_data_from_excel()
