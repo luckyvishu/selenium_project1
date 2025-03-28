@@ -33,6 +33,6 @@ class create_patient:
         sw.enter_text(create_patient.again_password,value=again_password)
         self.driver.execute_script(f"window.scrollBy(0, 1700)")
         wait = WebDriverWait(self.driver, 10)
-        submit_button = wait.until(EC.element_to_be_clickable((By.ID, "submit")))
+        submit_button = wait.until(EC.element_to_be_clickable((By.XPATH,"//button[contains(text(),'Submit')]")))
         submit_button.click()
         self.driver.switch_to.alert.accept()
