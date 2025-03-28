@@ -1,5 +1,8 @@
 from genral_utility.lib import SeleniumWrapper
-
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.action_chains import ActionChains
 
 class create_patient:
     fullname=("xpath","//input[@name='full_name']")
@@ -29,5 +32,7 @@ class create_patient:
         sw.enter_text(create_patient.password,value=password)
         sw.enter_text(create_patient.again_password,value=again_password)
         self.driver.execute_script(f"window.scrollBy(0, 1700)")
-        sw.click_element(create_patient.submit_btn)
+        wait = WebDriverWait(self.driver, 10)
+        submit_button = wait.until(EC.element_to_be_clickable((By.ID, "submit")))
+        sw.click_element(submit_button)
         self.driver.switch_to.alert.accept()
