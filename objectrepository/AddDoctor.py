@@ -42,7 +42,10 @@ class Adddoctor():
             EC.element_to_be_clickable((By.ID, "submit"))
         )
 
-        button.click()
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", button)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(button).click().perform()
+
 
         sleep(2)
         self.driver.switch_to.alert.accept()
