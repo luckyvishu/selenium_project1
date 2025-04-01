@@ -1,7 +1,10 @@
 from genral_utility.lib import SeleniumWrapper
 from time import sleep
 from selenium.webdriver.support.select import Select
-
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support.ui import WebDriverWait
 
 class Adddoctor():
     doctor_click=("xpath","//span[text()=' Doctors ']")
@@ -35,7 +38,12 @@ class Adddoctor():
         sw.enter_text(Adddoctor.Docpassword,value=password)
         sw.enter_text(Adddoctor.Docconpass,value=conformpassword)
         sleep(1)
-        self.driver.find_element("xpath","//button[@name='submit']").click()
+        button = WebDriverWait(self.driver, 20).until(
+            EC.element_to_be_clickable((By.ID, "submit"))
+        )
+
+        button.click()
+
         sleep(2)
         self.driver.switch_to.alert.accept()
 
