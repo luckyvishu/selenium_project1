@@ -34,5 +34,7 @@ class create_patient:
         self.driver.execute_script(f"window.scrollBy(0, 1700)")
         wait = WebDriverWait(self.driver, 10)
         submit_button = wait.until(EC.element_to_be_clickable((By.XPATH,"//button[contains(text(),'Submit')]")))
-        submit_button.click()
+        self.driver.execute_script("arguments[0].scrollIntoView(true);", submit_button)
+        actions = ActionChains(self.driver)
+        actions.move_to_element(submit_button).click().perform()
         self.driver.switch_to.alert.accept()
