@@ -3,7 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.action_chains import ActionChains
-
+from time import sleep
 class create_patient:
     fullname=("xpath","//input[@name='full_name']")
     address=("xpath","//input[@name='address']")
@@ -32,9 +32,10 @@ class create_patient:
         sw.enter_text(create_patient.password,value=password)
         sw.enter_text(create_patient.again_password,value=again_password)
         self.driver.execute_script(f"window.scrollBy(0, 1700)")
-        wait = WebDriverWait(self.driver, 10)
+        wait = WebDriverWait(self.driver, 20)
         submit_button = wait.until(EC.element_to_be_clickable((By.XPATH,"//button[contains(text(),'Submit')]")))
         self.driver.execute_script("arguments[0].scrollIntoView(true);", submit_button)
         actions = ActionChains(self.driver)
         actions.move_to_element(submit_button).click().perform()
+        sleep(2)
         self.driver.switch_to.alert.accept()
