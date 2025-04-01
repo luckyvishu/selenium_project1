@@ -1,4 +1,8 @@
 from genral_utility.lib import SeleniumWrapper
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support.ui import WebDriverWait
 
 
 class Addpatient:
@@ -36,5 +40,9 @@ class Addpatient:
         sw.enter_text(Addpatient.pat_address,value=address)
         sw.enter_text(Addpatient.pat_age,value=age)
         sw.enter_text(Addpatient.pat_med_his,value=medical_history)
-        sw.click_element(Addpatient.add_button)
+        button = WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable((By.ID, "submit"))
+        )
+
+        button.click()
 
