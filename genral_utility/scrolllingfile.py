@@ -43,13 +43,13 @@ class get_date():
     def switchtoalertDismiss(self):
         self.driver.switch_to.alert.dismiss()
     def take_screenshot(self):
-        floder = "C:\\Users\\QSP-USER\\PycharmProjects\\selenium_hospital_management sysytem\\test_screenshots\\"
+        floder = "C:\\Users\\User\\PycharmProjects\\hospital_management_system\\test_screenshots"
         time_string = time.asctime().replace(":", " ")
         file_name = floder + time_string + ".png"
         self.driver.save_screenshot(file_name)
 
     def get_data_from_excel(self,row,row_starting_index,ending_index):
-        wb = open_workbook("C:\\Users\\QSP-USER\\PycharmProjects\\selenium_hospital_management sysytem\\AdminData-2.xls")
+        wb = open_workbook("C:\\Users\\User\\PycharmProjects\\hospital_management_system\\AdminData-2.xls")
         sh = wb.sheet_by_name("Sheet1")
         value = sh.row_values(row,row_starting_index,ending_index)
         return value
